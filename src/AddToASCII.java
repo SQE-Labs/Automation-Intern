@@ -7,7 +7,7 @@ public class AddToASCII {
         char newCharacter = (char) (character + 3);
 
         // Print the result
-        System.out.println("Original character: " + character);
+        System.out.println("Original character  : " + character);
         System.out.println("New character after adding 3 to ASCII value: " + newCharacter);
     }
 }
