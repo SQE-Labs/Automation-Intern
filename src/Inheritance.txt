@@ -1,0 +1,255 @@
+=> Different type of inheritance available in java and write code to show each and every possible inheritance
+
+1. Single Inheritance:
+One class inherits from another class.
+
+
+
+
+2. Multilevel Inheritance:
+A class inherits from another class, which in turn inherits from a base class.
+
+
+
+
+3. Hierarchical Inheritance:
+Multiple classes inherit from a single base class.
+
+
+=> How Data Hiding works in Java, explain in the form of question.
+
+1. What is Data Hiding in Java?
+Data hiding is a principle of object-oriented programming where an object's internal details (such as variables) are
+not directly accessible from outside the class. Instead, controlled access is provided through methods. This ensures
+that data is protected from unauthorized access or accidental modification.
+
+2. How is Data Hiding achieved in Java?
+Data hiding in Java is achieved by:
+Declaring class variables as private.
+Providing public getter and setter methods to control access to those private variables.
+
+
+Here’s an explanation of Data Hiding in Java in a question-and-answer format:
+
+1. What is Data Hiding in Java?
+Data hiding is a principle of object-oriented programming where an object's internal details (such as variables) are not directly accessible from outside the class. Instead, controlled access is provided through methods. This ensures that data is protected from unauthorized access or accidental modification.
+
+2. How is Data Hiding achieved in Java?
+Data hiding in Java is achieved by:
+
+Declaring class variables as private.
+Providing public getter and setter methods to control access to those private variables.
+
+3. Why is Data Hiding important in Java?
+Encapsulation: Data hiding promotes encapsulation by bundling data and methods together.
+Security: It protects sensitive data from unintended or malicious access.
+Flexibility: It allows controlled access and ensures that the internal representation of an object can be changed without affecting external code.
+Validation: Setter methods can validate input before modifying the data.
+
+
+
+=> "1. What is encapsulation in Java?
+   a) The process of combining data and methods into a single unit
+   b) The process of hiding data and methods within a class
+   c) The process of creating multiple instances of a class
+   d) The process of reusing code from existing classes"
+
+  a) The process of combining data and methods into a single unit
+
+  Explanation:
+  Encapsulation is the process of bundling data (fields) and the methods (functions) that operate on that data into a
+  single unit, typically a class. It ensures that the data is not accessed directly but through controlled access
+  mechanisms such as getters and setters.
+
+=> "2. How can you restrict access to the attributes of a class in Java?
+   a) By declaring them as private
+   b) By declaring them as public
+   c) By not declaring any access modifier
+   d) By declaring them as protected"
+ a) By declaring them as private
+
+ Explanation:
+ In Java, private is an access modifier that restricts access to the attributes or methods to within the same class.
+ By declaring attributes as private, you prevent direct access from outside the class, thereby ensuring data hiding.
+ Access can then be controlled using getter and setter methods.
+
+ => "3. In encapsulation, how can you access the private attributes of a class?
+    a) Directly, by referencing the attribute name
+    b) By using special keywords
+    c) By using public methods provided by the class
+    d) By declaring the attributes as static"
+  c) By using public methods provided by the class
+
+  Explanation:
+  In encapsulation, private attributes cannot be accessed directly from outside the class. Instead, you provide public
+  getter and setter methods to read or modify the values of private attributes. This controlled access helps enforce
+  data hiding and validation.
+
+  => "9. Which of the following encapsulation levels provides the widest accessibility in Java?
+     a) private
+     b) public
+     c) protected
+     d) default (no modifier)"
+    Explanation:
+    The public access modifier provides the widest level of accessibility in Java. Members declared as public can be
+    accessed from anywhere in the program, including from other classes and packages.
+
+    => "5. What is the parent class of all classes in Java?
+       A. Object
+       B. String
+       C. Class
+       D. System "
+     A. Object
+
+     Explanation:
+     In Java, Object is the parent class of all classes. Every class in Java, either directly or indirectly, inherits
+     from the Object class. This means that all classes have access to the methods defined in the Object class.
+
+     => "7. What is the purpose of the 'super' keyword in Java?
+        A. To call the constructor of the parent class
+        B. To call a method of the child class
+        C. To create a new instance of a class
+        D. To define a static method "
+      A. To call the constructor of the parent class
+
+      Explanation:
+      The super keyword in Java is used to refer to the parent class. Its primary purposes are:
+
+      To call the constructor of the parent class.
+      This is often used to initialize the parent class's fields when a child class constructor is executed.
+
+      To access parent class methods or variables.
+      This is useful when a child class overrides a method or hides a variable and you need to refer to the parent
+      class's implementation.
+
+      => "9. What is a multilevel inheritance in Java?
+         A. A class extends two or more classes
+         B. Two or more classes extend the same class
+         C. A class extends another class which also extends another class
+         D. All of the above "
+       C. A class extends another class which also extends another class
+
+       Explanation:
+       Multilevel inheritance in Java occurs when a class extends another class, and that class, in turn, extends
+       another class. It forms a chain of inheritance where each class inherits from its immediate parent class, and
+       this inheritance continues across multiple levels.
+
+
+        A. Driving vehicle
+        B. Driving an electric car
+        C. Driving car
+        D. The code does not compile"
+     D. The code does not compile
+
+     Explanation:
+     The code will not compile because of a visibility issue when overriding the drive() method in the Car class and
+     then further overriding it in the ElectricCar class.
+
+     The method drive() in the Automobile class is declared as private, which means it is not visible in the Car class
+     or any subclass.
+     In Java, you cannot override a private method. The method drive() in the Automobile class is inaccessible to the
+     subclass Car because of its private visibility.
+     To fix this issue, the drive() method in the Automobile class should be changed to at least protected or public so
+     that it can be accessed and overridden properly by the subclasses.
+
+     =>  "2. Look at the following code and choose the right option for the word :
+         // Shape.java
+         public class Shape {
+             protected void display() {
+                 System.out.println(""Display-base"");
+             }
+         }
+         // Circle.java
+         public class Circle extends Shape { <
+             < access - modifier > void display() {
+                 System.out.println(""Display-derived"");
+             }
+         }a) Only the protected can be used.
+         b) public and protected both can be used.
+         c) public, protected, and private can be used.
+         d) Only the public can be used."
+       => "2. Look at the following code and choose the right option for the word :
+          // Shape.java
+          public class Shape {
+              protected void display() {
+                  System.out.println(""Display-base"");
+              }
+          }
+          // Circle.java
+          public class Circle extends Shape { <
+              < access - modifier > void display() {
+                  System.out.println(""Display-derived"");
+              }
+          }a) Only the protected can be used.
+          b) public and protected both can be used.
+          c) public, protected, and private can be used.
+          d) Only the public can be used."
+        b) public and protected both can be used.
+
+        Explanation:
+        In Java, when you override a method from a parent class, the overriding method in the child class can have an
+        access modifier that is equal to or more permissive than the one in the parent class.
+
+        In this case:
+
+        The method display() in the Shape class is protected.
+        When overriding this method in the Circle class, you can use either:
+        protected (which maintains the same level of access),
+        or public (which is more permissive and allows wider access).
+        However, private is not allowed because it is more restrictive than protected and would violate the inheritanc
+        rule. private would make the method inaccessible to subclasses.
+=>  "5. Consider the following program:
+    class Base {
+        public Base() {
+            System.out.print(""Base "");
+        }
+
+        public Base(String s) {
+            System.out.print(""Base: "" + s);
+        }
+    }
+
+    class Derived extends Base {
+        public Derived(String s) {
+            super(); // Stmt-1
+            super(s); // Stmt-2
+            System.out.print(""Derived "");
+        }
+    }
+
+    class Test {
+        public static void main(String[] args) {
+            Base base = new Derived(""Hello "");
+        }
+    }
+    Select three correct options from the following list:
+    a) Removing Stmt-1 will make the program compilable and it will print the following: Base Derived.
+    b) Removing Stmt-1 will make the program compilable and it will print the following: Base: Hello Derived.
+    c) Removing Stmt-2 will make the program compilable and it will print the following: Base Derived.
+    d) Removing both Stmt-1 and Stmt-2 will make the program compilable and it will print the following: Base Derived.
+    e) Removing both Stmt-1 and Stmt-2 will make the program compilable and it will print the following: Base: Hello Derived."
+
+Explanation:
+
+Problem: In Derived, both super(); (Stmt-1) and super(s); (Stmt-2) cannot coexist because only one super call is allowed, and it must be the first statement in the constructor.
+
+Analysis of changes:
+
+Removing Stmt-1: The program will use super(s); and print:
+Base: Hello Derived.
+Removing Stmt-2: The program will use the default super(); and print:
+Base Derived.
+Removing both Stmt-1 and Stmt-2: The compiler inserts an implicit super(); and prints:
+Base Derived.
+Correct Options:
+
+b: Removing Stmt-1 → Base: Hello Derived (Correct).
+c: Removing Stmt-2 → Base Derived (Correct).
+d: Removing both → Base Derived (Correct).
+
+
+=>
+
+
+
+
