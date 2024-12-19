@@ -3,131 +3,17 @@
 1. Single Inheritance:
 One class inherits from another class.
 
-class Parent {
-    void display() {
-        System.out.println("This is the Parent class.");
-    }
-}
 
-class Child extends Parent {
-    void show() {
-        System.out.println("This is the Child class.");
-    }
-}
-
-    public class SingleInheritance {
-    public static void main(String[] args) {
-        Child obj = new Child();
-        obj.display();
-        obj.show();
-    }
-}
 
 
 2. Multilevel Inheritance:
 A class inherits from another class, which in turn inherits from a base class.
 
-class Grandparent {
-    void greet() {
-        System.out.println("Hello from Grandparent.");
-    }
-}
-
-class Parent extends Grandparent {
-    void welcome() {
-        System.out.println("Welcome from Parent.");
-    }
-}
-
-class Child extends Parent {
-    void introduce() {
-        System.out.println("Introduction from Child.");
-    }
-}
-
-public class MultilevelInheritance {
-    public static void main(String[] args) {
-        Child obj = new Child();
-        obj.greet();
-        obj.welcome();
-        obj.introduce();
-    }
-}
 
 
 
 3. Hierarchical Inheritance:
 Multiple classes inherit from a single base class.
-
-class Parent {
-    void commonMethod() {
-        System.out.println("Common method in Parent class.");
-    }
-}
-
-class Child1 extends Parent {
-    void child1Method() {
-        System.out.println("Child1-specific method.");
-    }
-}
-
-class Child2 extends Parent {
-    void child2Method() {
-        System.out.println("Child2-specific method.");
-    }
-}
-
-public class HierarchicalInheritance {
-    public static void main(String[] args) {
-        Child1 obj1 = new Child1();
-        Child2 obj2 = new Child2();
-
-        obj1.commonMethod();
-        obj1.child1Method();
-
-        obj2.commonMethod();
-        obj2.child2Method();
-    }
-}
-
-
-4. Hybrid Inheritance:
-Java does not support hybrid inheritance directly due to the diamond problem. It can be achieved using interfaces.
-
-interface A {
-    void methodA();
-}
-
-interface B extends A {
-    void methodB();
-}
-
-class C implements A {
-    public void methodA() {
-        System.out.println("Method from interface A implemented in class C.");
-    }
-}
-
-class D implements A, B {
-    public void methodA() {
-        System.out.println("Method from interface A implemented in class D.");
-    }
-
-    public void methodB() {
-        System.out.println("Method from interface B implemented in class D.");
-    }
-}
-
-public class HybridInheritance {
-    public static void main(String[] args) {
-        C objC = new C();
-        objC.methodA();
-
-        D objD = new D();
-        objD.methodA();
-        objD.methodB();
-    }
-}
 
 
 => How Data Hiding works in Java, explain in the form of question.
@@ -160,56 +46,7 @@ Security: It protects sensitive data from unintended or malicious access.
 Flexibility: It allows controlled access and ensures that the internal representation of an object can be changed without affecting external code.
 Validation: Setter methods can validate input before modifying the data.
 
-class BankAccount {
-    private double balance; // Private variable - hidden from outside
 
-    // Constructor to initialize balance
-    public BankAccount(double initialBalance) {
-        if (initialBalance > 0) {
-            this.balance = initialBalance;
-        }
-    }
-
-    // Getter method to access balance
-    public double getBalance() {
-        return balance;
-    }
-
-    // Setter method to update balance with validation
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            System.out.println("Deposit successful! New balance: " + balance);
-        } else {
-            System.out.println("Invalid deposit amount.");
-        }
-    }
-
-    public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            System.out.println("Withdrawal successful! New balance: " + balance);
-        } else {
-            System.out.println("Invalid withdrawal amount or insufficient funds.");
-        }
-    }
-}
-
-public class DataHidingExample {
-    public static void main(String[] args) {
-        BankAccount account = new BankAccount(1000);
-
-        // Accessing balance via getter method
-        System.out.println("Current Balance: " + account.getBalance());
-
-        // Updating balance via setter methods
-        account.deposit(500);
-        account.withdraw(300);
-
-        // Trying to directly access the balance (uncommenting below will cause an error)
-        // account.balance = 5000; // Error: balance has private access
-    }
-}
 
 => "1. What is encapsulation in Java?
    a) The process of combining data and methods into a single unit
@@ -297,34 +134,7 @@ public class DataHidingExample {
        another class. It forms a chain of inheritance where each class inherits from its immediate parent class, and
        this inheritance continues across multiple levels.
 
-       For example:
-       Class C extends class B, and class B extends class A. This forms a multilevel inheritance structure.
 
-        => "1. What is the output of the following Java program?
-        class Automobile {
-            private String drive() {
-                return ""Driving vehicle"";
-            }
-        }
-
-        class Car extends Automobile {
-            protected String drive() {
-                return ""Driving car"";
-            }
-        }
-
-        public class ElectricCar extends Car {
-
-            @Override
-            public final String drive() {
-                return ""Driving an electric car"";
-            }
-
-            public static void main(String[] wheels) {
-                final Car car = new ElectricCar();
-                System.out.print(car.drive());
-            }
-        }
         A. Driving vehicle
         B. Driving an electric car
         C. Driving car
@@ -388,8 +198,57 @@ public class DataHidingExample {
         or public (which is more permissive and allows wider access).
         However, private is not allowed because it is more restrictive than protected and would violate the inheritanc
         rule. private would make the method inaccessible to subclasses.
+=>  "5. Consider the following program:
+    class Base {
+        public Base() {
+            System.out.print(""Base "");
+        }
+
+        public Base(String s) {
+            System.out.print(""Base: "" + s);
+        }
+    }
+
+    class Derived extends Base {
+        public Derived(String s) {
+            super(); // Stmt-1
+            super(s); // Stmt-2
+            System.out.print(""Derived "");
+        }
+    }
+
+    class Test {
+        public static void main(String[] args) {
+            Base base = new Derived(""Hello "");
+        }
+    }
+    Select three correct options from the following list:
+    a) Removing Stmt-1 will make the program compilable and it will print the following: Base Derived.
+    b) Removing Stmt-1 will make the program compilable and it will print the following: Base: Hello Derived.
+    c) Removing Stmt-2 will make the program compilable and it will print the following: Base Derived.
+    d) Removing both Stmt-1 and Stmt-2 will make the program compilable and it will print the following: Base Derived.
+    e) Removing both Stmt-1 and Stmt-2 will make the program compilable and it will print the following: Base: Hello Derived."
+
+Explanation:
+
+Problem: In Derived, both super(); (Stmt-1) and super(s); (Stmt-2) cannot coexist because only one super call is allowed, and it must be the first statement in the constructor.
+
+Analysis of changes:
+
+Removing Stmt-1: The program will use super(s); and print:
+Base: Hello Derived.
+Removing Stmt-2: The program will use the default super(); and print:
+Base Derived.
+Removing both Stmt-1 and Stmt-2: The compiler inserts an implicit super(); and prints:
+Base Derived.
+Correct Options:
+
+b: Removing Stmt-1 → Base: Hello Derived (Correct).
+c: Removing Stmt-2 → Base Derived (Correct).
+d: Removing both → Base Derived (Correct).
 
 
+=>
 
 
 
